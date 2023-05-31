@@ -1,0 +1,122 @@
+{
+    "Parameters": {
+        "UserARN": {
+            "Type": "String",
+            "Default": "twinmaker"
+        },
+        "ResourcePrefix1": {
+            "Type": "String",
+            "Default": "GrafanaBreweryDashboardRole"
+        },
+        "ResourcePrefix2": {
+            "Type": "String",
+            "Default": "GrafanaBrewery"
+        },
+        "S3BucketPrefix": {
+            "Type": "String",
+            "Default": "brewery"
+        }
+    },
+    "Resources": {
+        "GrafanaRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": {
+                    "Fn::Sub": "${ResourcePrefix1}"
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Sub": "${UserARN}"
+                                }
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "GrafanaBreweryDashboardPolicy",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "iottwinmaker:Get*",
+                                        "iottwinmaker:List*"
+                                    ],
+                                    "Resource": [
+                                        {
+                                            "Fn::Sub": "arn:${AWS::Partition}:iottwinmaker:${AWS::Region}:${AWS::AccountId}:workspace/${ResourcePrefix2}"
+                                        },
+                                        {
+                                            "Fn::Sub": "arn:${AWS::Partition}:iottwinmaker:${AWS::Region}:${AWS::AccountId}:workspace/${ResourcePrefix2}/*"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "s3:GetObject"
+                                    ],
+                                    "Resource": [
+                                        {
+                                            "Fn::Sub": "arn:${AWS::Partition}:s3:::twinmaker-workspace-${S3BucketPrefix}-${AWS::AccountId}-${AWS::Region}"
+                                        },
+                                        {
+                                            "Fn::Sub": "arn:${AWS::Partition}:s3:::twinmaker-workspace-${S3BucketPrefix}-${AWS::AccountId}-${AWS::Region}/*"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "iottwinmaker:ListWorkspaces",
+                                    "Resource": "*"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "570f1fe3-2d06-4b8b-85a7-72313603b4e2"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "GrafanaRoleArn": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "GrafanaRole",
+                    "Arn"
+                ]
+            }
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "570f1fe3-2d06-4b8b-85a7-72313603b4e2": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            }
+        }
+    }
+}

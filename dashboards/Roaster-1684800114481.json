@@ -1,0 +1,1355 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 22,
+  "iteration": 1684800109286,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "options": {
+        "alertInstanceLabelFilter": "",
+        "alertName": "${entityname}",
+        "dashboardAlerts": false,
+        "datasource": "",
+        "folder": {
+          "id": 19,
+          "title": "Brewery Manufacturing"
+        },
+        "groupBy": [],
+        "groupMode": "default",
+        "maxItems": 20,
+        "sortOrder": 1,
+        "stateFilter": {
+          "error": true,
+          "firing": true,
+          "inactive": false,
+          "noData": false,
+          "normal": false,
+          "pending": true
+        }
+      },
+      "title": "Alerts",
+      "type": "alertlist"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 9,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20"
+          ],
+          "propertyDisplayNames": {
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20": "OEEPer5min"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg OEE %",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 23,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_9ec139c6-1547-4ef9-9d74-c5882038d97f"
+          ],
+          "propertyDisplayNames": {
+            "Property_9ec139c6-1547-4ef9-9d74-c5882038d97f": "UtilizationPer5min"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg Utilization %",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "id": 24,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_432d9e37-4df2-43ef-9feb-ca92ce0b1f18"
+          ],
+          "propertyDisplayNames": {
+            "Property_432d9e37-4df2-43ef-9feb-ca92ce0b1f18": "QualityPer5min"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg Quality %",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 4
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Prod_RoastedBarley_ToLot$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_5072d389-a959-4fb6-b850-537d67b9038a"
+          ],
+          "propertyDisplayNames": {
+            "Property_5072d389-a959-4fb6-b850-537d67b9038a": "Prod_RoastedBarley_ToLot"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Produced Lot",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 4
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Cons_RawBarley_FromLot$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_6ea18747-2f19-49ce-8cf5-0c76fb690841"
+          ],
+          "propertyDisplayNames": {
+            "Property_6ea18747-2f19-49ce-8cf5-0c76fb690841": "Cons_RawBarley_FromLot"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Consumed Lot",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 4
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Cons_RawBarley_Item$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_f9010568-a6b6-48e6-bd36-0eb48706b0aa"
+          ],
+          "propertyDisplayNames": {
+            "Property_f9010568-a6b6-48e6-bd36-0eb48706b0aa": "Cons_RawBarley_Item"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Item Consumed",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 12,
+        "y": 4
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "intervalStreaming": "10",
+          "isStreaming": true,
+          "properties": [
+            "Property_a52c4278-1806-4ede-9de9-3898a95c49d9"
+          ],
+          "propertyDisplayNames": {
+            "Property_a52c4278-1806-4ede-9de9-3898a95c49d9": "Scrap"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Scrap",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 4,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 5,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 17,
+        "y": 4
+      },
+      "id": 6,
+      "maxDataPoints": 3000,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "intervalStreaming": "10",
+          "isStreaming": true,
+          "properties": [
+            "${sel_properties_a}"
+          ],
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Property_ee3f6bde-c743-4825-adc6-6c4c65a914a2": "Temperature_PV"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "customSelCompVarName": "sel_comp",
+        "customSelEntityVarName": "sel_entity",
+        "datasource": "_DdEVLG4k",
+        "sceneId": "Roaster"
+      },
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "isStreaming": false,
+          "properties": [
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888"
+          ],
+          "propertyDisplayNames": {
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888": "Status"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        },
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_a561fbe3-7633-43cb-8774-27a0bc5b891c"
+          ],
+          "propertyDisplayNames": {
+            "Property_a561fbe3-7633-43cb-8774-27a0bc5b891c": "MaltAuger_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        },
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_ee3f6bde-c743-4825-adc6-6c4c65a914a2"
+          ],
+          "propertyDisplayNames": {
+            "Property_ee3f6bde-c743-4825-adc6-6c4c65a914a2": "Temperature_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "C"
+        },
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_0197f4f4-015a-4fcc-9bc6-57dd08b89c32"
+          ],
+          "propertyDisplayNames": {
+            "Property_0197f4f4-015a-4fcc-9bc6-57dd08b89c32": "Malt_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "D"
+        }
+      ],
+      "type": "grafana-iot-twinmaker-sceneviewer-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "displayName": "Status",
+          "mappings": [
+            {
+              "options": {
+                "Demand": {
+                  "color": "blue",
+                  "index": 7
+                },
+                "Downtime": {
+                  "color": "red",
+                  "index": 6
+                },
+                "Filling": {
+                  "color": "green",
+                  "index": 3
+                },
+                "Holding": {
+                  "color": "yellow",
+                  "index": 0
+                },
+                "Idle": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "Maintenance": {
+                  "color": "orange",
+                  "index": 8
+                },
+                "Ramping Down": {
+                  "color": "blue",
+                  "index": 4
+                },
+                "Ramping Up": {
+                  "color": "blue",
+                  "index": 1
+                },
+                "Running": {
+                  "color": "green",
+                  "index": 5
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888"
+          ],
+          "propertyDisplayNames": {
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888": "Status"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        },
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "hide": false,
+          "isStreaming": true,
+          "properties": [
+            "Property_8d1f8da7-2920-41de-aba4-802caf47f13d"
+          ],
+          "propertyDisplayNames": {
+            "Property_8d1f8da7-2920-41de-aba4-802caf47f13d": "UtilizationState"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "title": "Status",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "keepLabels": [
+              "componentName"
+            ],
+            "mode": "columns",
+            "valueLabel": "componentName"
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Started": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Stopped": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^MaltAuger_PV$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_a561fbe3-7633-43cb-8774-27a0bc5b891c"
+          ],
+          "propertyDisplayNames": {
+            "Property_a561fbe3-7633-43cb-8774-27a0bc5b891c": "MaltAuger_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Auger",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Started": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Stopped": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 18,
+        "y": 14
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Status$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888"
+          ],
+          "propertyDisplayNames": {
+            "Property_82edb177-62c9-49c0-9beb-b40e5e763888": "Status"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Status",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "color-background-solid",
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "No Orders": {
+                  "color": "yellow",
+                  "index": 1
+                },
+                "Planned Maintenance": {
+                  "color": "blue",
+                  "index": 5
+                },
+                "Running (Normal)": {
+                  "color": "green",
+                  "index": 4
+                },
+                "Running (Slow)": {
+                  "color": "light-green",
+                  "index": 3
+                },
+                "Unknown": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "Unplanned Maintenance": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 21,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "isStreaming": true,
+          "properties": [
+            "Property_5e014c4a-cab7-4310-990f-15afb3c5a5de"
+          ],
+          "propertyDisplayNames": {
+            "Property_5e014c4a-cab7-4310-990f-15afb3c5a5de": "Utilization"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Utilization States",
+      "transformations": [],
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "a6dd811d-8e08-43d3-a2d5-22690b52272e",
+          "value": "a6dd811d-8e08-43d3-a2d5-22690b52272e"
+        },
+        "hide": 2,
+        "name": "sel_entity",
+        "options": [
+          {
+            "selected": true,
+            "text": "d13f42b3-8abb-4c71-901d-cea7d5f6a7db",
+            "value": "d13f42b3-8abb-4c71-901d-cea7d5f6a7db"
+          }
+        ],
+        "query": "d13f42b3-8abb-4c71-901d-cea7d5f6a7db",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "sitewiseBase",
+          "value": "sitewiseBase"
+        },
+        "hide": 2,
+        "name": "sel_comp",
+        "options": [
+          {
+            "selected": true,
+            "text": "SiteWise",
+            "value": "SiteWise"
+          }
+        ],
+        "query": "SiteWise",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_ee3f6bde-c743-4825-adc6-6c4c65a914a2",
+          "value": "Property_ee3f6bde-c743-4825-adc6-6c4c65a914a2"
+        },
+        "hide": 2,
+        "name": "sel_properties_a",
+        "options": [
+          {
+            "selected": true,
+            "text": "Malt_PV",
+            "value": "Malt_PV"
+          }
+        ],
+        "query": "Malt_PV",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_e953f198-6d88-464b-acc1-23dd33bf291b",
+          "value": "Property_e953f198-6d88-464b-acc1-23dd33bf291b"
+        },
+        "hide": 2,
+        "name": "sel_properties_b",
+        "options": [
+          {
+            "selected": true,
+            "text": "Malt_SP",
+            "value": "Malt_SP"
+          }
+        ],
+        "query": "Malt_SP",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Roaster200",
+          "value": "Roaster200"
+        },
+        "hide": 2,
+        "name": "entityname",
+        "options": [
+          {
+            "selected": true,
+            "text": "Roaster100",
+            "value": "Roaster100"
+          }
+        ],
+        "query": "Roaster100",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Roaster",
+  "uid": "ctc5SLG4k",
+  "version": 86,
+  "weekStart": ""
+}

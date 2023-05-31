@@ -1,0 +1,467 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 25,
+  "iteration": 1684800083496,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 22,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "customSelCompVarName": "sel_comp",
+        "customSelEntityVarName": "sel_entity",
+        "datasource": "_DdEVLG4k",
+        "sceneId": "MaltMill"
+      },
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "isStreaming": false,
+          "properties": [
+            "Property_6fd5a7c1-1037-4724-b5fc-c5ae4c2b1793"
+          ],
+          "propertyDisplayNames": {
+            "Property_6fd5a7c1-1037-4724-b5fc-c5ae4c2b1793": "MaltMill_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        },
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627"
+          ],
+          "propertyDisplayNames": {
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "type": "grafana-iot-twinmaker-sceneviewer-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Stopped": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "intervalStreaming": "10",
+          "isStreaming": false,
+          "properties": [
+            "Property_65c55925-19c7-4ca3-99f7-195cbd6ac5e5"
+          ],
+          "propertyDisplayNames": {
+            "Property_65c55925-19c7-4ca3-99f7-195cbd6ac5e5": "MaltAuger_PV"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "MaltMill",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Stopped": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^State$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "intervalStreaming": "10",
+          "isStreaming": true,
+          "properties": [
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627"
+          ],
+          "propertyDisplayNames": {
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine State",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "displayName": "State",
+          "mappings": [
+            {
+              "options": {
+                "Demand": {
+                  "color": "blue",
+                  "index": 7
+                },
+                "Downtime": {
+                  "color": "red",
+                  "index": 6
+                },
+                "Filling": {
+                  "color": "green",
+                  "index": 3
+                },
+                "Holding": {
+                  "color": "yellow",
+                  "index": 0
+                },
+                "Idle": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "Maintenance": {
+                  "color": "orange",
+                  "index": 8
+                },
+                "Paused": {
+                  "color": "yellow",
+                  "index": 9
+                },
+                "Ramping Down": {
+                  "color": "blue",
+                  "index": 4
+                },
+                "Ramping Up": {
+                  "color": "blue",
+                  "index": 1
+                },
+                "Running": {
+                  "color": "green",
+                  "index": 5
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 4,
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "properties": [
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627"
+          ],
+          "propertyDisplayNames": {
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        }
+      ],
+      "title": "State Timeline",
+      "transformations": [],
+      "type": "state-timeline"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "830f59dd-7895-4da1-aede-a1ed0add7ce4",
+          "value": "830f59dd-7895-4da1-aede-a1ed0add7ce4"
+        },
+        "hide": 2,
+        "name": "sel_entity",
+        "options": [
+          {
+            "selected": true,
+            "text": "a6dd811d-8e08-43d3-a2d5-22690b52272e",
+            "value": "a6dd811d-8e08-43d3-a2d5-22690b52272e"
+          }
+        ],
+        "query": "830f59dd-7895-4da1-aede-a1ed0add7ce4",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "sitewiseBase",
+          "value": "sitewiseBase"
+        },
+        "hide": 2,
+        "name": "sel_comp",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "sitewiseBase",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "https://ucdavis.app.box.com/s/dkssfq1nlk9glr39vftwi123ugnz62sm",
+          "value": "https://ucdavis.app.box.com/s/dkssfq1nlk9glr39vftwi123ugnz62sm"
+        },
+        "hide": 2,
+        "name": "sel_doc",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "https://ucdavis.app.box.com/s/dkssfq1nlk9glr39vftwi123ugnz62sm",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "MaltMill",
+  "uid": "P2eLEzn4z",
+  "version": 27,
+  "weekStart": ""
+}

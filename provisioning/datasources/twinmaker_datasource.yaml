@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+- name: AWS IoT TwinMaker
+  uid: _DdEVLG4k
+  type: grafana-iot-twinmaker-datasource
+  typeName: AWS IoT TwinMaker
+  access: proxy
+  basicAuth: false
+  isDefault: true
+  jsonData:
+     assumeRoleArn: IAMROLE
+     authType: default
+     defaultRegion: AWSREGION
+     workspaceId: BreweryManufacturing
+  readOnly: false
+  editable: true

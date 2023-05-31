@@ -1,0 +1,367 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This CF will install the Grafana Dashboard server, TwinMaker scenes, and dashboards",
+    "Parameters": {
+        "InstanceType": {
+            "Type": "String",
+            "Description": "",
+            "Default": "t3.medium",
+            "AllowedValues": [
+                "t2.micro",
+                "t2.medium",
+                "t3.micro",
+                "t3.medium"
+            ],
+            "ConstraintDescription": "must be a valid EC2 instance type."
+        }
+    },
+    "Mappings": {
+        "AWSRegion2AMI": {
+            "us-east-1": {
+                "ami": "ami-0aa7d40eeae50c9a9"
+            },
+            "us-west-2": {
+                "ami": "ami-06e85d4c3149db26a"
+            },
+            "us-east-2": {
+                "ami": "ami-05bfbece1ed5beb54"
+            },
+            "ap-south-1": {
+                "ami": "ami-01a4f99c4ac11b03c"
+            },
+            "ap-northeast-2": {
+                "ami": "ami-013218fccb68a90d4"
+            },
+            "ap-southeast-1": {
+                "ami": "ami-0753e0e42b20e96e3"
+            },
+            "ap-southeast-2": {
+                "ami": "ami-023dd49682f8a7c2b"
+            },
+            "ap-northeast-1": {
+                "ami": "ami-06ee4e2261a4dc5c3"
+            },
+            "ca-central-1": {
+                "ami": "ami-092e716d46cd65cac"
+            },
+            "eu-central-1": {
+                "ami": "ami-06c39ed6b42908a36"
+            },
+            "eu-west-1": {
+                "ami": "ami-0b752bf1df193a6c4"
+            },
+            "us-gov-west-1": {
+                "ami": "ami-08528bba60fc5bc86"
+            }
+        }
+    },
+    "Resources": {
+        "GrafanaInstance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": {
+                    "Fn::FindInMap": [
+                        "AWSRegion2AMI",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        "ami"
+                    ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Grafana Dashboard"
+                    }
+                ],
+                "InstanceType": {
+                    "Ref": "InstanceType"
+                },
+                "IamInstanceProfile": {
+                    "Ref": "GrafanaIAMInstanceProfile"
+                },
+                "SecurityGroupIds": [
+                    {
+                        "Ref": "GrafanaSecurityGroup"
+                    }
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "#!/bin/bash -x\n# Install grafana and packages\n# yum update -y\nyum install -y aws-cfn-bootstrap\n",
+                                "/opt/aws/bin/cfn-init -v",
+                                " --stack ",
+                                {
+                                    "Ref": "AWS::StackName"
+                                },
+                                " --resource GrafanaInstance ",
+                                " --region ",
+                                {
+                                    "Ref": "AWS::Region"
+                                },
+                                "\n",
+                                "",
+                                "yum install -y git",
+                                "\n",
+                                "git clone https://github.com/aws-samples/aws-iot-twinmaker-breweries-demo.git",                                
+                                "\n",
+                                "cd aws-iot-twinmaker-breweries-demo/scripts/",
+                                "\n",
+                                "sh install.sh",
+                                "\n",
+                                "# Signal the status from cfn-init\n",
+                                "/opt/aws/bin/cfn-signal -e $? ",
+                                " --stack ",
+                                {
+                                    "Ref": "AWS::StackName"
+                                },
+                                " --resource GrafanaInstance ",
+                                " --region ",
+                                {
+                                    "Ref": "AWS::Region"
+                                },
+                                "\n"
+                            ]
+                        ]
+                    }
+                }
+            },
+            "CreationPolicy": {
+                "ResourceSignal": {
+                    "Timeout": "PT15M"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7755ae8b-0af6-4687-ad9f-e0335896a0f6"
+                }
+            }
+        },
+        "GrafanaSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Grafana SG",
+                "SecurityGroupIngress" : [{
+                    "IpProtocol" : "tcp",
+                    "FromPort" : 80,
+                    "ToPort" : 80,
+                    "CidrIp" : "0.0.0.0/0"
+                },
+                {
+                    "IpProtocol" : "tcp",
+                    "FromPort" : 22,
+                    "ToPort" : 22,
+                    "CidrIp" : "0.0.0.0/0"
+                }]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "9545159e-eb2b-4189-aa07-67112dd8e1d4"
+                }
+            }
+        },
+        "GrafanaIAMRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "EC2InstanceRole",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    { "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore" }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "91d81a05-40a4-40aa-9e6f-3752ed962081"
+                }
+            }
+        },
+        "GrafanaIAMInstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "GrafanaIAMRole"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "10c56ae2-36a2-4da8-8263-b27934d9c145"
+                }
+            }
+        },
+        "GrafanaIAMPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "GrafanaPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "iottwinmaker:ExecuteQuery",
+                                "iottwinmaker:CreateScene",
+                                "iottwinmaker:ListScenes"
+                            ],
+                            "Resource": 
+                                { "Fn::Sub": "arn:${AWS::Partition}:iottwinmaker:${AWS::Region}:${AWS::AccountId}:workspace/BreweryManufacturing" }                            
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": 
+                            [
+                                "cloudformation:CreateStack",
+                                "cloudformation:DescribeStacks"
+                            ],
+                            "Resource": [
+                                { "Fn::Sub":  "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/sitewiseassets/*" },
+                                { "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/brewerydemo/*" },
+                                { "Fn::Sub": "arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/GrafanaDashboardIAM/*" }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "iam:CreatePolicy",
+                                "iam:CreateRole",
+                                "iam:GetRole",
+                                "iam:DeleteRolePolicy",
+                                "iam:PutRolePolicy",
+                                "iam:GetRolePolicy"
+                            ],
+                            "Resource": [
+                                { "Fn::Sub":  "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/*" },
+                                { "Fn::Sub":  "arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/*" }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "s3:PutObject"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Sub": "arn:${AWS::Partition}:s3:::twinmaker-workspace-brewery-${AWS::AccountId}-${AWS::Region}/*"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "Roles": [
+                    {
+                        "Ref": "GrafanaIAMRole"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a2d16b4a-37f8-461e-a945-60d45eb5f0d8"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "GrafanaDashboard": {
+            "Description": "Grafana Dashboard",
+            "Value": { 
+                "Fn::Sub": [
+                    "http://${Domain}",
+                    {
+                        "Domain": {
+                            "Fn::GetAtt" : [ "GrafanaInstance", "PublicDnsName" ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "9545159e-eb2b-4189-aa07-67112dd8e1d4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 90,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "7755ae8b-0af6-4687-ad9f-e0335896a0f6": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "9545159e-eb2b-4189-aa07-67112dd8e1d4"
+                ]
+            },
+            "91d81a05-40a4-40aa-9e6f-3752ed962081": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 270,
+                    "y": 150
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "10c56ae2-36a2-4da8-8263-b27934d9c145": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 270,
+                    "y": 30
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "a2d16b4a-37f8-461e-a945-60d45eb5f0d8": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 390,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "91d81a05-40a4-40aa-9e6f-3752ed962081"
+                ]
+            }
+        }
+    }
+}

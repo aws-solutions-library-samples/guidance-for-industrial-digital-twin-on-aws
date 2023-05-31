@@ -1,0 +1,309 @@
+{
+    "Description": "This CF will install the IoT TwinMaker workspace and configure IoT SiteWise sync",
+    "Parameters": {
+        "TwinMakerWorkspaceId": {
+            "Type": "String",
+            "Default": "BreweryManufacturing",
+            "ConstraintDescription": "The Id of Workspace, must be unique accross one AWS account and region"
+        }
+    },
+    "Resources": {
+        "BreweryWorkspaceBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": 
+                    {
+                        "Fn::Sub": "twinmaker-workspace-brewery-${AWS::AccountId}-${AWS::Region}"
+                    },
+                "CorsConfiguration": {
+                    "CorsRules": [
+                        {
+                            "AllowedHeaders": [
+                                "*"
+                            ],
+                            "AllowedMethods": [
+                                "GET",
+                                "PUT",
+                                "POST",
+                                "DELETE",
+                                "HEAD"
+                            ],
+                            "AllowedOrigins": [
+                                "*"
+                            ],
+                            "ExposedHeaders": [
+                                "ETag"
+                            ]
+                        }
+                    ]
+                }                
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "4479f5b0-1cc6-4d84-bd77-0953a77f31fb"
+                }
+            }
+        },
+        "BreweryWorkspaceRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "iottwinmaker.amazonaws.com"
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "s3:GetBucket*",
+                                        "s3:GetObject",
+                                        "s3:ListBucket",
+                                        "s3:PutObject"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": {
+                                        "Fn::Sub": "arn:${AWS::Partition}:s3:::*"
+                                    },
+                                    "Sid": "AllowS3Access"
+                                },
+                                {
+                                    "Action": "s3:DeleteObject",
+                                    "Effect": "Allow",
+                                    "Resource": {
+                                        "Fn::Sub": "arn:${AWS::Partition}:s3:::*/DO_NOT_DELETE_WORKSPACE_*"
+                                    },
+                                    "Sid": "AllowS3Delete"
+                                },
+                                {
+                                    "Action": [
+                                        "iotsitewise:GetAssetPropertyValueHistory",
+                                        "iotsitewise:DescribeAsset",
+                                        "iotsitewise:DescribeAssetModel",
+                                        "iotsitewise:BatchPutAssetPropertyValue"
+                                    ],
+                                    "Resource": "*",
+                                    "Effect": "Allow"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "inline"
+                    }
+                ],
+                "RoleName": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "TwinMakerWorkspaceId"
+                            },
+                            "WorkspaceRole"
+                        ]
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ec34c0e6-a2df-4814-b0ac-3873f9bc557c"
+                }
+            }
+        },
+        "SiteWiseSyncRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": "sts:AssumeRole",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "iottwinmaker.amazonaws.com",
+                                    "iotsitewise.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": "iottwinmaker:*",
+                                    "Effect": "Allow",
+                                    "Resource": "*",
+                                    "Sid": "AllowIoTTwinMakerAccess"
+                                },
+                                {
+                                    "Action": [
+                                        "iotsitewise:Describe*",
+                                        "iotsitewise:List*"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*",
+                                    "Sid": "AllowIoTSiteWiseAccess"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "inline"
+                    }
+                ],
+                "RoleName": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "TwinMakerWorkspaceId"
+                            },
+                            "SyncRole"
+                        ]
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "3d463809-255c-425f-968c-3cbf756438d3"
+                }
+            }
+        },
+        "Brewery": {
+            "Type": "AWS::IoTTwinMaker::Workspace",
+            "Properties": {
+                "Role": {
+                    "Fn::GetAtt": [
+                        "BreweryWorkspaceRole",
+                        "Arn"
+                    ]
+                },
+                "S3Location": {
+                    "Fn::GetAtt": [
+                        "BreweryWorkspaceBucket",
+                        "Arn"
+                    ]
+                },
+                "WorkspaceId": {
+                    "Ref": "TwinMakerWorkspaceId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "98b63823-2d11-4d16-9dad-0d5122c4fd0b"
+                }
+            }
+        },
+        "SiteWiseSyncJob": {
+            "Type": "AWS::IoTTwinMaker::SyncJob",
+            "Properties": {
+                "SyncRole": {
+                    "Fn::GetAtt": [
+                        "SiteWiseSyncRole",
+                        "Arn"
+                    ]
+                },
+                "SyncSource": "SITEWISE",
+                "WorkspaceId": {
+                    "Ref": "TwinMakerWorkspaceId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a0e8c76a-26a4-4086-a4a2-8b001a6010eb"
+                }
+            },
+            "DependsOn": [
+                "Brewery"
+            ]
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "3d463809-255c-425f-968c-3cbf756438d3": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "ec34c0e6-a2df-4814-b0ac-3873f9bc557c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "4479f5b0-1cc6-4d84-bd77-0953a77f31fb": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": 210
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "98b63823-2d11-4d16-9dad-0d5122c4fd0b": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 210
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "a0e8c76a-26a4-4086-a4a2-8b001a6010eb": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 210
+                },
+                "z": 0,
+                "embeds": [],
+                "dependson": [
+                    "98b63823-2d11-4d16-9dad-0d5122c4fd0b"
+                ]
+            },
+            "1e875968-13a3-40ea-8f41-f66a50119f2a": {
+                "source": {
+                    "id": "a0e8c76a-26a4-4086-a4a2-8b001a6010eb"
+                },
+                "target": {
+                    "id": "98b63823-2d11-4d16-9dad-0d5122c4fd0b"
+                },
+                "z": 2
+            }
+        }
+    }
+}

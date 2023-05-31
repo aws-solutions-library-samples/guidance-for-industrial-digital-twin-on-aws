@@ -1,0 +1,383 @@
+# config file version
+apiVersion: 1
+
+# List of rule groups to import or update
+groups:
+  # <int> organization ID, default = 1
+  - orgId: 1
+    # <string, required> name of the rule group
+    name: BoilKettleAlerts
+    # <string, required> name of the folder the rule group will be stored in
+    folder: Brewery Manufacturing
+    # <duration, required> interval that the rule group should evaluated at
+    interval: 60s
+    # <list, required> list of rules that are part of the rule group
+    rules:
+      # <string, required> unique identifier for the rule
+      - uid: E0GsX7w4z
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: BoilKettleAlerts
+        title: BoilKettle100 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: 49a921ae-4e71-4ace-91a8-ef9b2c30fa68
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8
+            propertyDisplayNames:
+              Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T01:26:57Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for BoilKettle 100
+      - uid: 1-jBO4w4z
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: BoilKettleAlerts
+        title: BoilKettle200 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: db2579c9-be7e-4339-b23a-41c99831488c
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8
+            propertyDisplayNames:
+              Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T05:47:53Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for BoilKettle 200
+      - uid: 0WqkKVw4z
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: MashTunAlerts
+        title: MashTun100 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: d32343a2-86f1-4478-9e28-b44a0394e811
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d
+            propertyDisplayNames:
+              Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T05:55:00Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for MashTun 100
+      - uid: x_AHFVwVz
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: MashTunAlerts
+        title: MashTun200 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: b02ad13a-dd6e-4b8c-9638-54e2581e7fe3
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d
+            propertyDisplayNames:
+              Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T05:58:36Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for MashTun 200
+      - uid: WCIhK4w4z
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: RoasterAlerts
+        title: Roaster100 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: d13f42b3-8abb-4c71-901d-cea7d5f6a7db
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20
+            propertyDisplayNames:
+              Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T06:01:43Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for Roaster 100
+      - uid: VA5LK4w4z
+        orgID: 1
+        folderUID: DjCe_nQVz
+        ruleGroup: RoasterAlerts
+        title: Roaster200 OEE%
+        condition: B
+        data:
+        - refId: A
+          queryType: EntityHistory
+          relativeTimeRange:
+            from: 3600
+            to: 0
+          datasourceUid: _DdEVLG4k
+          model:
+            componentName: sitewiseBase
+            entityId: a6dd811d-8e08-43d3-a2d5-22690b52272e
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            properties:
+            - Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20
+            propertyDisplayNames:
+              Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20: OEEPer5min
+            queryType: EntityHistory
+            refId: A
+        - refId: B
+          queryType: ''
+          relativeTimeRange:
+            from: 0
+            to: 0
+          datasourceUid: "-100"
+          model:
+            conditions:
+            - evaluator:
+                params:
+                - 50
+                type: lt
+              operator:
+                type: and
+              query:
+                params:
+                - A
+              reducer:
+                params: []
+                type: avg
+              type: query
+            datasource:
+              type: __expr__
+              uid: "-100"
+            expression: A
+            hide: false
+            intervalMs: 1000
+            maxDataPoints: 43200
+            refId: B
+            type: classic_conditions
+        updated: '2023-05-23T06:05:37Z'
+        noDataState: NoData
+        execErrState: Alerting
+        for: 10m
+        annotations:
+          summary: Low OEE% for Roaster 200
+

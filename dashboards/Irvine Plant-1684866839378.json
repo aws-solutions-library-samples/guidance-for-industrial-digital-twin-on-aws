@@ -1,0 +1,821 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 37,
+  "iteration": 1684866710283,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Paused": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 35,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": true,
+          "properties": [
+            "${panel1OEE}"
+          ],
+          "propertyDisplayNames": {
+            "${panel1OEE}": "${panel1OEE} = Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "title": "Avg OEE %",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Paused": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 36,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": true,
+          "properties": [
+            "${panel2Util}"
+          ],
+          "propertyDisplayNames": {
+            "${panel2Util}": "${panel2Util} = Property_0c285470-6ff8-4ef0-af7c-89330cea95f5"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "title": "Avg Utilization %",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Paused": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 38,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": true,
+          "properties": [
+            "${panel2Util}"
+          ],
+          "propertyDisplayNames": {
+            "${panel2Util}": "${panel2Util} = "
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "title": "Avg Perf %",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "Paused": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 37,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.4",
+      "targets": [
+        {
+          "componentName": "${sel_comp}",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "${sel_entity}",
+          "filter": [],
+          "hide": false,
+          "isStreaming": true,
+          "properties": [
+            "${panel4Qual}"
+          ],
+          "propertyDisplayNames": {
+            "${panel4Qual}": "${panel4Qual} = "
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        }
+      ],
+      "title": "Avg Quality %",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-iot-twinmaker-datasource",
+        "uid": "_DdEVLG4k"
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 2,
+      "links": [],
+      "options": {
+        "customInputActiveCamera": "camera_view",
+        "customSelCompVarName": "sel_comp",
+        "customSelEntityVarName": "sel_entity",
+        "datasource": "_DdEVLG4k",
+        "sceneId": "IrvinePlant"
+      },
+      "targets": [
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "a6dd811d-8e08-43d3-a2d5-22690b52272e",
+          "isStreaming": false,
+          "properties": [
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20",
+            "Property_90020799-018d-466e-95c9-783773931d7a"
+          ],
+          "propertyDisplayNames": {
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20": "OEEPer5min",
+            "Property_90020799-018d-466e-95c9-783773931d7a": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "A"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "d13f42b3-8abb-4c71-901d-cea7d5f6a7db",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20",
+            "Property_90020799-018d-466e-95c9-783773931d7a"
+          ],
+          "propertyDisplayNames": {
+            "Property_6c11f1c5-a8b6-4ff0-bdfc-c345ff152e20": "OEEPer5min",
+            "Property_90020799-018d-466e-95c9-783773931d7a": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "B"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "d32343a2-86f1-4478-9e28-b44a0394e811",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d",
+            "Property_326cc721-9582-4f97-a324-76cf12c530f1"
+          ],
+          "propertyDisplayNames": {
+            "Property_326cc721-9582-4f97-a324-76cf12c530f1": "State",
+            "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d": "OEEPer5min"
+          },
+          "queryType": "EntityHistory",
+          "refId": "E"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "b02ad13a-dd6e-4b8c-9638-54e2581e7fe3",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d",
+            "Property_326cc721-9582-4f97-a324-76cf12c530f1"
+          ],
+          "propertyDisplayNames": {
+            "Property_326cc721-9582-4f97-a324-76cf12c530f1": "State",
+            "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d": "OEEPer5min"
+          },
+          "queryType": "EntityHistory",
+          "refId": "F"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8",
+            "Property_8d5bdd72-73de-40a2-8c8c-d5b6bbf5eb4a"
+          ],
+          "propertyDisplayNames": {
+            "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8": "OEEPer5min",
+            "Property_8d5bdd72-73de-40a2-8c8c-d5b6bbf5eb4a": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "G"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "db2579c9-be7e-4339-b23a-41c99831488c",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8",
+            "Property_8d5bdd72-73de-40a2-8c8c-d5b6bbf5eb4a"
+          ],
+          "propertyDisplayNames": {
+            "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8": "OEEPer5min",
+            "Property_8d5bdd72-73de-40a2-8c8c-d5b6bbf5eb4a": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "H"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "c601190f-d5c7-4a11-9c11-17e6c3e2b651",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_e62ef6c6-e8e3-41a9-ae99-3655db76f5f0"
+          ],
+          "propertyDisplayNames": {
+            "Property_e62ef6c6-e8e3-41a9-ae99-3655db76f5f0": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "C"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "1f281db3-ccca-4b7c-b10a-a2a4f317e0a9",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_e62ef6c6-e8e3-41a9-ae99-3655db76f5f0"
+          ],
+          "propertyDisplayNames": {
+            "Property_e62ef6c6-e8e3-41a9-ae99-3655db76f5f0": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "D"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "830f59dd-7895-4da1-aede-a1ed0add7ce4",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627"
+          ],
+          "propertyDisplayNames": {
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "I"
+        },
+        {
+          "componentName": "sitewiseBase",
+          "datasource": {
+            "type": "grafana-iot-twinmaker-datasource",
+            "uid": "_DdEVLG4k"
+          },
+          "entityId": "edab2a82-cfba-417b-8c27-c0613480f155",
+          "hide": false,
+          "isStreaming": false,
+          "properties": [
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627"
+          ],
+          "propertyDisplayNames": {
+            "Property_ca5d790d-8a31-4765-9385-42b4cf7f2627": "State"
+          },
+          "queryType": "EntityHistory",
+          "refId": "J"
+        }
+      ],
+      "title": "Plant Overview",
+      "type": "grafana-iot-twinmaker-sceneviewer-panel"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "b02ad13a-dd6e-4b8c-9638-54e2581e7fe3",
+          "value": "b02ad13a-dd6e-4b8c-9638-54e2581e7fe3"
+        },
+        "hide": 2,
+        "name": "sel_entity",
+        "options": [
+          {
+            "selected": false,
+            "text": "db2579c9-be7e-4339-b23a-41c99831488c",
+            "value": "db2579c9-be7e-4339-b23a-41c99831488c"
+          }
+        ],
+        "query": "b02ad13a-dd6e-4b8c-9638-54e2581e7fe3",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "sitewiseBase",
+          "value": "sitewiseBase"
+        },
+        "hide": 2,
+        "name": "sel_comp",
+        "options": [
+          {
+            "selected": true,
+            "text": "sitewiseBase",
+            "value": "sitewiseBase"
+          }
+        ],
+        "query": "sitewiseBase",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "MashTun",
+          "value": "MashTun"
+        },
+        "hide": 2,
+        "name": "dashboardname",
+        "options": [
+          {
+            "selected": false,
+            "text": "BoilKettle",
+            "value": "BoilKettle"
+          }
+        ],
+        "query": "MashTun",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "MgGE3kn4k",
+          "value": "MgGE3kn4k"
+        },
+        "hide": 2,
+        "name": "dashboardguid",
+        "options": [
+          {
+            "selected": false,
+            "text": "DLn8g7n4k",
+            "value": "DLn8g7n4k"
+          }
+        ],
+        "query": "MgGE3kn4k",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Top View Camera",
+          "value": "Top View Camera"
+        },
+        "hide": 2,
+        "name": "camera_view",
+        "options": [
+          {
+            "selected": true,
+            "text": "Top View Camera",
+            "value": "Top View Camera"
+          }
+        ],
+        "query": "Top View Camera",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "MashTun200",
+          "value": "MashTun200"
+        },
+        "hide": 2,
+        "name": "entityname",
+        "options": [
+          {
+            "selected": false,
+            "text": "BoilKettle200",
+            "value": "BoilKettle200"
+          }
+        ],
+        "query": "MashTun200",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d",
+          "value": "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d"
+        },
+        "hide": 2,
+        "name": "panel1OEE",
+        "options": [
+          {
+            "selected": false,
+            "text": "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8",
+            "value": "Property_7ec49e45-e30d-4d30-aad4-3256acc1bdb8"
+          }
+        ],
+        "query": "Property_441130bb-c49b-4cff-bc0c-dcc18459fb7d",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_0b9318b2-e17a-46c4-9626-526c237bff42",
+          "value": "Property_0b9318b2-e17a-46c4-9626-526c237bff42"
+        },
+        "hide": 2,
+        "name": "panel2Util",
+        "options": [
+          {
+            "selected": false,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "Property_0b9318b2-e17a-46c4-9626-526c237bff42",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_ff4cf1ab-5fb0-4891-96bc-0c35774ab869",
+          "value": "Property_ff4cf1ab-5fb0-4891-96bc-0c35774ab869"
+        },
+        "hide": 2,
+        "name": "panel3Perf",
+        "options": [
+          {
+            "selected": false,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "Property_ff4cf1ab-5fb0-4891-96bc-0c35774ab869",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Property_5fa71762-d62f-4df2-83c2-97862dc66911",
+          "value": "Property_5fa71762-d62f-4df2-83c2-97862dc66911"
+        },
+        "hide": 2,
+        "name": "panel4Qual",
+        "options": [
+          {
+            "selected": false,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "Property_5fa71762-d62f-4df2-83c2-97862dc66911",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Irvine Plant",
+  "uid": "kdPLVYGV2",
+  "version": 28,
+  "weekStart": ""
+}
