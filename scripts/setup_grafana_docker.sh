@@ -10,6 +10,7 @@ CONTAINER_NAME=brewery-grafana
 # Prepare directories for grafana
 mkdir -p ${SCRIPT_DIR}/local_grafana_data/plugins
 mkdir -p ${SCRIPT_DIR}/local_grafana_data/dashboards
+mkdir -p ${SCRIPT_DIR}/local_grafana_data/alerting
 mkdir -p ${SCRIPT_DIR}/local_grafana_data/provisioning/datasources
 mkdir -p ${SCRIPT_DIR}/local_grafana_data/provisioning/dashboards
 mkdir -p ${SCRIPT_DIR}/local_grafana_data/provisioning/alerting
@@ -17,6 +18,7 @@ chmod 777 ${SCRIPT_DIR}/local_grafana_data
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/plugins
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/dashboards
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/provisioning
+chmod 777 ${SCRIPT_DIR}/local_grafana_data/alerting
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/provisioning/datasources
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/provisioning/dashboards
 chmod 777 ${SCRIPT_DIR}/local_grafana_data/provisioning/alerting
@@ -35,7 +37,7 @@ cp ../dashboards/*.* ${SCRIPT_DIR}/local_grafana_data/dashboards/
 # will have the same configuration.
 docker rm --force ${CONTAINER_NAME} &> /dev/null
 
-docker run -d \
+docker run -d --restart unless-stopped \
   -p 80:3000 \
   --name=${CONTAINER_NAME} \
   -v ${SCRIPT_DIR}/local_grafana_data:/var/lib/grafana \
