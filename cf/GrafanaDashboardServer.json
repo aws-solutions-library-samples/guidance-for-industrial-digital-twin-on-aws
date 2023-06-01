@@ -74,6 +74,17 @@
                         "Value": "Grafana Dashboard"
                     }
                 ],
+                "BlockDeviceMappings": [
+                    {
+                      "DeviceName": "/dev/xvda",
+                      "Ebs": {
+                        "VolumeType": "gp2",
+                        "VolumeSize": "30",
+                        "DeleteOnTermination":"false",
+                        "Encrypted": "false"
+                      }
+                    }
+                ],
                 "InstanceType": {
                     "Ref": "InstanceType"
                 },
