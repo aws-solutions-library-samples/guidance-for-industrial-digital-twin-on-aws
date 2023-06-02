@@ -228,10 +228,16 @@
                     "Statement": [
                         {
                             "Effect": "Allow",
+                            "Action": "iottwinmaker:ListWorkspaces",
+                            "Resource": "*"
+                        },
+                        {
+                            "Effect": "Allow",
                             "Action": [
                                 "iottwinmaker:ExecuteQuery",
                                 "iottwinmaker:CreateScene",
-                                "iottwinmaker:ListScenes"
+                                "iottwinmaker:ListScenes",
+                                "iottwinmaker:Get*"
                             ],
                             "Resource": 
                                 { "Fn::Sub": "arn:${AWS::Partition}:iottwinmaker:${AWS::Region}:${AWS::AccountId}:workspace/BreweryManufacturing" }                            
