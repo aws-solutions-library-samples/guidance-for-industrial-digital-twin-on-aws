@@ -47,4 +47,4 @@ docker run -d --restart unless-stopped \
   -e "GF_INSTALL_PLUGINS=grafana-iot-twinmaker-app" \
   -e "GF_SECURITY_ALLOW_EMBEDDING=true" \
   -e "GF_PANELS_DISABLE_SANITIZE_HTML=true" \
-  grafana/grafana:9.1.7
+  grafana/grafana
