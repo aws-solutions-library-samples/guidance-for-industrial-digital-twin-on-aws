@@ -25,7 +25,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 27,
-  "iteration": 1684800058803,
+  "iteration": 1685813266459,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -328,7 +328,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^Property_5573ef03\\-d1e8\\-4e71\\-ace0\\-5a4ad48e4381$/",
+          "fields": "/^Prod_BrewedWort_ToLot$/",
           "values": false
         },
         "textMode": "auto"
@@ -345,6 +345,9 @@
           "properties": [
             "Property_5573ef03-d1e8-4e71-ace0-5a4ad48e4381"
           ],
+          "propertyDisplayNames": {
+            "Property_5573ef03-d1e8-4e71-ace0-5a4ad48e4381": "Prod_BrewedWort_ToLot"
+          },
           "queryType": "EntityHistory",
           "refId": "A"
         }
@@ -402,7 +405,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^Property_85adc8cd\\-5bf0\\-48e8\\-843b\\-542ecd73699c$/",
+          "fields": "/^Cons_Wort_FromLot$/",
           "values": false
         },
         "textMode": "auto"
@@ -419,6 +422,9 @@
           "properties": [
             "Property_85adc8cd-5bf0-48e8-843b-542ecd73699c"
           ],
+          "propertyDisplayNames": {
+            "Property_85adc8cd-5bf0-48e8-843b-542ecd73699c": "Cons_Wort_FromLot"
+          },
           "queryType": "EntityHistory",
           "refId": "A"
         }
@@ -476,7 +482,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^Property_1bcc596d\\-be9d\\-45a8\\-9d43\\-e3fff5d329e9$/",
+          "fields": "/^Cons_Hops_Item$/",
           "values": false
         },
         "textMode": "auto"
@@ -493,6 +499,9 @@
           "properties": [
             "Property_1bcc596d-be9d-45a8-9d43-e3fff5d329e9"
           ],
+          "propertyDisplayNames": {
+            "Property_1bcc596d-be9d-45a8-9d43-e3fff5d329e9": "Cons_Hops_Item"
+          },
           "queryType": "EntityHistory",
           "refId": "A"
         }
@@ -1222,8 +1231,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           }
@@ -1299,20 +1307,20 @@
     "list": [
       {
         "current": {
-          "selected": true,
-          "text": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
-          "value": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68"
+          "selected": false,
+          "text": "db2579c9-be7e-4339-b23a-41c99831488c",
+          "value": "db2579c9-be7e-4339-b23a-41c99831488c"
         },
         "hide": 2,
         "name": "sel_entity",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
             "value": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68"
           }
         ],
-        "query": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
+        "query": "db2579c9-be7e-4339-b23a-41c99831488c",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1376,19 +1384,19 @@
       {
         "current": {
           "selected": false,
-          "text": "BoilKettle100",
-          "value": "BoilKettle100"
+          "text": "BoilKettle200",
+          "value": "BoilKettle200"
         },
         "hide": 2,
         "name": "entityname",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "BoilKettle100",
             "value": "BoilKettle100"
           }
         ],
-        "query": "BoilKettle100",
+        "query": "BoilKettle200",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1421,6 +1429,6 @@
   "timezone": "",
   "title": "BoilKettle",
   "uid": "DLn8g7n4k",
-  "version": 76,
+  "version": 78,
   "weekStart": ""
 }
