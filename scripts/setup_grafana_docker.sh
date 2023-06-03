@@ -44,7 +44,7 @@ docker run -d --restart unless-stopped \
   -v ${SCRIPT_DIR}/local_grafana_data/provisioning:/etc/grafana/provisioning \
   -v ${SCRIPT_DIR}/local_grafana_data/dashboards:/var/lib/grafana/dashboards \
   -v ${SCRIPT_DIR}/local_grafana_data/alerting:/var/lib/grafana/alerting \
-  -v ${SCRIPT_DIR}/.aws:/usr/share/grafana/.aws \
+  -v ${SCRIPT_DIR}/local_grafana_data/.aws:/usr/share/grafana/.aws \
   -e "GF_INSTALL_PLUGINS=grafana-iot-twinmaker-app" \
   -e "GF_SECURITY_ALLOW_EMBEDDING=true" \
   -e "GF_PANELS_DISABLE_SANITIZE_HTML=true" \

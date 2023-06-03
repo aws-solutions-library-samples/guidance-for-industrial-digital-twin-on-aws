@@ -53,12 +53,7 @@ The deployment of the demo is spread out over several cloudformation stacks. The
 4. Wait until the stack is completed successfully. 
 5. The Grafana URL is found in the Outputs tab of the Cloudformation template.
 6. Open the Grafana portal. The default credential is **admin/admin**. Change this once you login.
-7. After logging in, go to Data sources and click on AWS IoT TwinMaker.
-8. This has already been provisioned for you. Just click the button **Save & test** and wait for it to finish testing. This may take several minutes
-
-![datasource](./images/datasource.png)
-
-9. Go browse for the dashboards. The simulation will take several minutes to produce items and get processed downstream.
+7. Go browse for the dashboards. The simulation will take several minutes to produce items and get processed downstream.
 
 ![DemoClip](./images/brewery-demo.gif)
 

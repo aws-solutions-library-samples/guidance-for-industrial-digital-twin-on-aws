@@ -10,6 +10,12 @@ sudo yum install -y docker
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
 
+### Setup Cron job for refreshing EC2 IAM credentials to pass to the Grafana Container
+sudo chkconfig crond on
+sudo service crond start
+sh update_credentials.sh
+(crontab -l ; echo "*/30 * * * * sudo sh /aws-iot-twinmaker-breweries-demo/scripts/update_credentials.sh") | crontab -
+
 ### Setup Env Variables
 export AWS_DEFAULT_REGION=`wget -q -O - http://169.254.169.254/latest/meta-data/placement/region`
 export ROLE_NAME="EC2InstanceRole"
