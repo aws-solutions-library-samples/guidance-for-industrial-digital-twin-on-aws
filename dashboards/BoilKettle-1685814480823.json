@@ -25,7 +25,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 27,
-  "iteration": 1685813266459,
+  "iteration": 1685814474307,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1044,8 +1044,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1072,7 +1071,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^Property_1da2138c\\-29a6\\-4a51\\-a49f\\-fcaf5e6a3498$/",
+          "fields": "/^OutletValve_PV$/",
           "values": false
         },
         "textMode": "auto"
@@ -1090,6 +1089,9 @@
           "properties": [
             "Property_1da2138c-29a6-4a51-a49f-fcaf5e6a3498"
           ],
+          "propertyDisplayNames": {
+            "Property_1da2138c-29a6-4a51-a49f-fcaf5e6a3498": "OutletValve_PV"
+          },
           "queryType": "EntityHistory",
           "refId": "A"
         }
@@ -1132,8 +1134,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1160,7 +1161,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^Property_caaea344\\-2c93\\-4fdd\\-8ce9\\-10f5bc116ebc$/",
+          "fields": "/^SteamValve_PV$/",
           "values": false
         },
         "text": {},
@@ -1179,6 +1180,9 @@
           "properties": [
             "Property_caaea344-2c93-4fdd-8ce9-10f5bc116ebc"
           ],
+          "propertyDisplayNames": {
+            "Property_caaea344-2c93-4fdd-8ce9-10f5bc116ebc": "SteamValve_PV"
+          },
           "queryType": "EntityHistory",
           "refId": "A"
         }
@@ -1307,20 +1311,20 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "db2579c9-be7e-4339-b23a-41c99831488c",
-          "value": "db2579c9-be7e-4339-b23a-41c99831488c"
+          "selected": true,
+          "text": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
+          "value": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68"
         },
         "hide": 2,
         "name": "sel_entity",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
             "value": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68"
           }
         ],
-        "query": "db2579c9-be7e-4339-b23a-41c99831488c",
+        "query": "49a921ae-4e71-4ace-91a8-ef9b2c30fa68",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1384,19 +1388,19 @@
       {
         "current": {
           "selected": false,
-          "text": "BoilKettle200",
-          "value": "BoilKettle200"
+          "text": "BoilKettle100",
+          "value": "BoilKettle100"
         },
         "hide": 2,
         "name": "entityname",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "BoilKettle100",
             "value": "BoilKettle100"
           }
         ],
-        "query": "BoilKettle200",
+        "query": "BoilKettle100",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1429,6 +1433,6 @@
   "timezone": "",
   "title": "BoilKettle",
   "uid": "DLn8g7n4k",
-  "version": 78,
+  "version": 80,
   "weekStart": ""
 }
