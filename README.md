@@ -51,7 +51,7 @@ The deployment of the demo is spread out over several cloudformation stacks. The
 2. Go to CloudFormation in your console and click `Create Stack`.
 3. Upload the template file your downloaded and proceed through the steps to deploy.
 4. Wait until the stack is completed successfully. 
-> **_NOTE:_**  If this step fails, your EC2 instance may be receiving a forced reboot signal from Systems Manager for a patch before the script in user-data completes. Delete this failed stack and proceed to [step 1.3b](#13b-deploy-grafana-dashboard-server) for a manual install.
+> **_NOTE:_**  If this step fails, your EC2 instance may be receiving a forced reboot signal from Systems Manager for a patch before the script in user-data completes. Delete this failed stack and proceed to [step 1.3b](#13b-deploy-grafana-dashboard-server-manual) for a manual install.
 5. The Grafana URL is found in the Outputs tab of the Cloudformation template.
 6. Open the Grafana portal. The default credential is **admin/admin**. Change this once you login.
 7. Go browse for the dashboards. The simulation will take several minutes to produce items and get processed downstream.
