@@ -45,18 +45,41 @@ The deployment of the demo is spread out over several cloudformation stacks. The
 3. Upload the template file your downloaded and proceed through the steps to deploy.
 4. Wait until the stack is completed successfully. 
 
-### 1.3 Deploy Grafana Dashboard Server
+### 1.3a Deploy Grafana Dashboard Server (Automated)
 
 1. Open this <a href="cf/GrafanaDashboardServer.json?raw=1" target="_blank" download>cloudformation</a> template and click "File->Save As" in your browser to download. This template deploys a self managed Grafana Dashboard server, IAM Role, IoT TwinMaker scenes, and preloaded dashboards for the Brewery demo.
 2. Go to CloudFormation in your console and click `Create Stack`.
 3. Upload the template file your downloaded and proceed through the steps to deploy.
 4. Wait until the stack is completed successfully. 
+> **_NOTE:_**  If this step fails, your EC2 instance may be receiving a forced reboot signal from Systems Manager for a patch before the script in user-data completes. Delete this failed stack and proceed to [step 1.3b](#13b-deploy-grafana-dashboard-server) for a manual install.
 5. The Grafana URL is found in the Outputs tab of the Cloudformation template.
 6. Open the Grafana portal. The default credential is **admin/admin**. Change this once you login.
 7. Go browse for the dashboards. The simulation will take several minutes to produce items and get processed downstream.
 
 ![DemoClip](./images/brewery-demo.gif)
 
+### 1.3b Deploy Grafana Dashboard Server (Manual)
+
+1. Open this <a href="cf/GrafanaDashboardServer_NoInstall.json?raw=1" target="_blank" download>cloudformation</a> template and click "File->Save As" in your browser to download. This template deploys a self managed Grafana Dashboard server and IAM Role. We will manually install the IoT TwinMaker scenes and preloaded dashboards for the Brewery demo.
+2. Go to CloudFormation in your console and click `Create Stack`.
+3. Upload the template file your downloaded and proceed through the steps to deploy.
+4. Wait until the stack is completed successfully.
+5. Proceed to the EC2 Console and connect to the instance.
+![connect](./images/connect.png)
+6. Click on the tab `EC2 Instance Connect`, change the user name to `root`, and click `Connect`
+![startsession](./images/startsession.png)
+7. Once logged into the session, run this script and wait for it to complete. You can ignore errors like this "ERROR:root:('Roaster200', 'null')"
+
+``` bash
+yum install -y git
+git clone https://github.com/aws-samples/aws-iot-twinmaker-breweries-demo.git                             
+cd aws-iot-twinmaker-breweries-demo/scripts/
+sh install.sh
+
+```
+8. The Grafana URL is shown at the end of the installation and is found in the Outputs tab of the Cloudformation template.
+9. Open the Grafana portal. The default credential is **admin/admin**. Change this once you login.
+10. Go browse for the dashboards. The simulation will take several minutes to produce items and get processed downstream.
 
 ## Clean Up
 
