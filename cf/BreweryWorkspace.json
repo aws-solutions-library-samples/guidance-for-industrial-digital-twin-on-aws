@@ -1,5 +1,5 @@
 {
-    "Description": "This CF will install the IoT TwinMaker workspace and configure IoT SiteWise sync",
+    "Description": "This CF will install the IoT TwinMaker workspace and configure IoT SiteWise sync (SO9315)",
     "Parameters": {
         "TwinMakerWorkspaceId": {
             "Type": "String",

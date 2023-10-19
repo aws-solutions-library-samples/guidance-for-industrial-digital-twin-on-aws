@@ -1,4 +1,5 @@
 {
+    "Description": "This CF will create a Grafana Dashboard IAM Role for IoT TwinMaker (SO9315)",
     "Parameters": {
         "UserARN": {
             "Type": "String",

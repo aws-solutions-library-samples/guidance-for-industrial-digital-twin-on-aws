@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This CF will install the Grafana Dashboard server, TwinMaker scenes, and dashboards",
+    "Description": "This CF will install the Grafana Dashboard server, TwinMaker scenes, and dashboards (SO9315)",
     "Parameters": {
         "InstanceType": {
             "Type": "String",
