@@ -154,7 +154,7 @@ sh install.sh
 ### Deployment Validation
 
 * Open CloudFormation console and verify the successfull deployment of each template.
-* Open the Grafana portal. Verity the simulation is working when you start to see values and trends in the dashboards.
+* Open the Grafana portal. Verify the simulation is working when you start to see values and trends in the dashboards.
 
 ![DemoClip](./images/brewery-demo.gif)
 
@@ -165,7 +165,7 @@ This guidance solution will run indefintely producing simulated data. If you are
 
 
 
-## Next Steps (required)
+## Next Steps
 
 This guidance provides a base framework from which you can build on top for your Industrial Solution. With this guidance, you can modify certain aspects of this system to be tailored to your environment. This may include the following:
 - Customization to data ingestion with services like AWS IoT Greengrass, AWS IoT SiteWise, and data ingestion AWS partners.
