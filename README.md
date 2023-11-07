@@ -1,12 +1,8 @@
 # Guidance for Industrial Digital Twin on AWS
 
-This Guidance provides a set of artifacts that will guide customers in building a production monitoring architecture with AWS IoT TwinMaker and supporting services. The artifacts in this Guidance provide sample demo projects, data simulators, and articles that offer support for using various feature sets within AWS IoT TwinMaker and AWS IoT SiteWise. With AWS IoT TwinMaker, customers can get a 3D model of their plant operations derived from computer-aided design (CAD) or reality capture models, such as Matterport. Using AWS IoT TwinMaker’s Knowledge Graph, customers can view relationships between industrial assets and operations.
-
-The sample demo project in this repository is called the Brewery Manufacturing demo. It provides guidance on how to build a Production Monitoring solution in an Industrial setting where Plant Managers or Line Supervisors can have visibility to plant operations, alerts, and situational awareness to downtime in a 3D visualization. Operations can monitor and diagnose alarms in a 3D visualization that helps reduce the mean time to repair (MTTR) by enabling teams to quickly see potential causes from upstream or downstream operations in a manufacturing process. This reduction in time will improve customer’s ROI by reducing downtime in operations and optimizing the output of product manufactured. 
-
 ## Table of Content
 
-1. [Overview](#guidance-for-industrial-digital-twin-on-aws)
+1. [Overview](#overview)
     - [Cost](#cost)
 2. [Prerequisites](#prerequisites)
     - [Operating System](#operating-system)
@@ -18,15 +14,11 @@ The sample demo project in this repository is called the Brewery Manufacturing d
 8. [Revisions](#revisions)
 9. [Notices](#notices)
 
-## Overview (required)
+## Overview
 
-1. Provide a brief overview explaining the what, why, or how of your Guidance. You can answer any one of the following to help you write this:
+This Guidance provides a set of artifacts that will guide customers in building a production monitoring architecture with AWS IoT TwinMaker and supporting services. The artifacts in this Guidance provide sample demo projects, data simulators, and articles that offer support for using various feature sets within AWS IoT TwinMaker and AWS IoT SiteWise. With AWS IoT TwinMaker, customers can get a 3D model of their plant operations derived from computer-aided design (CAD) or reality capture models, such as Matterport. Using AWS IoT TwinMaker’s Knowledge Graph, customers can view relationships between industrial assets and operations.
 
-    - **Why did you build this Guidance?**
-    - **What problem does this Guidance solve?**
-
-2. Include the architecture diagram image, as well as the steps explaining the high-level overview and flow of the architecture. 
-    - To add a screenshot, create an ‘assets/images’ folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README. 
+The sample demo project in this repository is called the Brewery Manufacturing demo. It provides guidance on how to build a Production Monitoring solution in an Industrial setting where Plant Managers or Line Supervisors can have visibility to plant operations, alerts, and situational awareness to downtime in a 3D visualization. Operations can monitor and diagnose alarms in a 3D visualization that helps reduce the mean time to repair (MTTR) by enabling teams to quickly see potential causes from upstream or downstream operations in a manufacturing process. This reduction in time will improve customer’s ROI by reducing downtime in operations and optimizing the output of product manufactured. 
 
 ### Cost
 
