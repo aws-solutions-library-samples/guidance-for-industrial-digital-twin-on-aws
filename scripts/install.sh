@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT-0
 
 ### Download repos
-git clone https://github.com/aws-samples/breweries-sitewise-simulator
+git clone https://github.com/aws-solutions-library-samples/breweries-sitewise-simulator.git
 
 ### Install Packages
 pip3 install boto3 --no-input
@@ -14,7 +14,7 @@ sudo systemctl start docker.service
 sudo chkconfig crond on
 sudo service crond start
 sh update_credentials.sh
-(crontab -l ; echo "*/30 * * * * sudo sh /aws-iot-twinmaker-breweries-demo/scripts/update_credentials.sh") | crontab -
+(crontab -l ; echo "*/30 * * * * sudo sh /guidance-for-industrial-digital-twin-on-aws/scripts/update_credentials.sh") | crontab -
 
 ### Setup Env Variables
 export AWS_DEFAULT_REGION=`wget -q -O - http://169.254.169.254/latest/meta-data/placement/region`
