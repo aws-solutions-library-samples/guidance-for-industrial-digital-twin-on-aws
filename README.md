@@ -36,7 +36,7 @@ The deployment of the demo is spread out over several cloudformation stacks. The
 
 ### 1.1 Deploy Brewery SiteWise Simulator
 
-1. Install the [Brewery SiteWise Simulator](https://github.com/aws-samples/breweries-sitewise-simulator) following the Quick Deploy steps.
+1. Install the [Brewery SiteWise Simulator](https://github.com/aws-solutions-library-samples/breweries-sitewise-simulator) following the Quick Deploy steps.
 
 ### 1.2 Deploy IoT TwinMaker Workspace
 
@@ -72,8 +72,8 @@ The deployment of the demo is spread out over several cloudformation stacks. The
 
 ``` bash
 yum install -y git
-git clone https://github.com/aws-samples/aws-iot-twinmaker-breweries-demo.git                             
-cd aws-iot-twinmaker-breweries-demo/scripts/
+git clone https://github.com/aws-solutions-library-samples/guidance-for-industrial-digital-twin-on-aws.git                             
+cd guidance-for-industrial-digital-twin-on-aws/scripts/
 sh install.sh
 
 ```
